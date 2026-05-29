@@ -1,0 +1,17 @@
+FROM node:20
+
+WORKDIR /app
+
+COPY backend/package*.json ./backend/
+COPY ["AI-AGENT-SYSTEM/package*.json", "AI-AGENT-SYSTEM/"]
+
+RUN cd backend && npm install && cd /app/AI-AGENT-SYSTEM && npm install
+
+COPY backend ./backend
+COPY ["AI-AGENT-SYSTEM", "AI-AGENT-SYSTEM"]
+COPY DATABASE ./DATABASE
+COPY WORKERS ./WORKERS
+
+EXPOSE 5000
+
+CMD ["node", "backend/server.js"]

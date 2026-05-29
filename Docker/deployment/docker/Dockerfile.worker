@@ -1,0 +1,17 @@
+FROM node:20-bullseye
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends -o Acquire::Retries=3 ffmpeg && \
+    rm -rf /var/lib/apt/lists/*
+WORKDIR /worker
+
+COPY WORKERS/package*.json ./
+RUN npm install
+
+COPY WORKERS ./WORKERS/
+COPY ["AI Engine", "AI Engine/"]
+COPY ["STORAGE SERVICE", "STORAGE SERVICE/"]
+COPY .env .env
+
+CMD ["npm", "start"]

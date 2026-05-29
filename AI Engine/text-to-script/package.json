@@ -1,0 +1,12 @@
+{
+  "name": "ai-video-generator-engine",
+  "private": true,
+  "type": "commonjs",
+  "main": "ai-engine/index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "fluent-ffmpeg": "^2.1.3"
+  }
+}

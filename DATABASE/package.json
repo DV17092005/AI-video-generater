@@ -1,0 +1,8 @@
+{
+  "name": "ai-video-generator-database",
+  "private": true,
+  "type": "commonjs",
+  "dependencies": {
+    "mongoose": "^7.5.3"
+  }
+}

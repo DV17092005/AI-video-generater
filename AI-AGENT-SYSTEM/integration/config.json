@@ -1,0 +1,45 @@
+{
+  "agentConfig": {
+    "enableLearning": true,
+    "enablePersonalization": true,
+    "evaluationInterval": 100,
+    "taskProcessingTimeout": 30000,
+    "maxRetries": 3
+  },
+  "memory": {
+    "apiKey": "${VECTOR_DB_API_KEY}",
+    "environment": "${VECTOR_ENV}",
+    "indexName": "ai-agent-memory",
+    "embeddingModel": "text-embedding-3-small",
+    "openaiKey": "${OPENAI_API_KEY}",
+    "maxMemoryAge": 7776000000,
+    "minRelevanceScore": 0.6
+  },
+  "evaluation": {
+    "successRateThreshold": 0.8,
+    "avgConfidenceThreshold": 0.75,
+    "userSatisfactionThreshold": 4.0,
+    "maxExecutionTimeThreshold": 5000,
+    "evaluationWindow": 100
+  },
+  "feedback": {
+    "learningRate": 0.1,
+    "minFeedbackCount": 10,
+    "ratingWeight": 0.5,
+    "correctionWeight": 0.3,
+    "helpfulWeight": 0.2
+  },
+  "privacy": {
+    "encryptionKey": "${ENCRYPTION_KEY}",
+    "dataRetentionDays": 90,
+    "safetyRules": {
+      "allowDataCollection": false,
+      "allowPersonalization": false,
+      "allowFeedbackLearning": false,
+      "blockSensitiveData": true,
+      "contentFilter": true,
+      "rateLimit": true,
+      "requiresExplicitConsent": true
+    }
+  }
+}

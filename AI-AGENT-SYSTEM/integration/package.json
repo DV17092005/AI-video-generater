@@ -1,0 +1,5 @@
+{
+  "name": "ai-agent-system-backend-integration",
+  "description": "Express.js integration layer for AI Agent System",
+  "version": "1.0.0"
+}

@@ -1,0 +1,1 @@
+﻿const generateScript = async (storyPrompt) => { return { title: "The Brave Lion", scenes: [{id: 1, narration: "Leo the lion lived in a sunny jungle."}, {id: 2, narration: "One day he discovered a mysterious cave."}] }; }; module.exports = generateScript;

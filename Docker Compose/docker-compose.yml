@@ -1,0 +1,48 @@
+services:
+
+  frontend:
+    build:
+      context: ..
+      dockerfile: Docker/deployment/docker/Dockerfile.frontend
+
+    ports:
+      - "3000:3000"
+
+  backend:
+    build:
+      context: ..
+      dockerfile: Docker/deployment/docker/Dockerfile.backend
+
+    ports:
+      - "5000:5000"
+
+    env_file:
+      - ../.env
+
+    depends_on:
+      - mongo
+      - redis
+
+  worker:
+    build:
+      context: ..
+      dockerfile: Docker/deployment/docker/Dockerfile.worker
+
+    env_file:
+      - ../.env
+
+    depends_on:
+      - mongo
+      - redis
+
+  mongo:
+    image: mongo
+
+    ports:
+      - "27017:27017"
+
+  redis:
+    image: redis
+
+    ports:
+      - "6379:6379"

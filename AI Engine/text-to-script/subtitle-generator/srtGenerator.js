@@ -1,0 +1,1 @@
+﻿const createSRT = (lines) => { let output = ""; lines.forEach((line, index) => { output += `${index + 1}\n`; output += `00:00:${index * 5},000 --> 00:00:${(index + 1) * 5},000\n`; output += `${line}\n\n`; }); return output; }; module.exports = createSRT;
