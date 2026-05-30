@@ -1,12 +1,7 @@
-const fs = require("fs");
-const path = require("path");
-const dotenvPath = path.resolve(__dirname, "../.env");
-if (fs.existsSync(dotenvPath)) {
-  require("dotenv").config({ path: dotenvPath });
-}
+require("dotenv").config();
 const http = require("http");
 const app = require("./app");
-const connectDB = require("./config/db");
+const { connectDB } = require("./config/db");
 const initSocket = require("./sockets/socketServer");
 
 connectDB();
