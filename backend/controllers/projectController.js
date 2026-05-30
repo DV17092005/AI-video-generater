@@ -1,7 +1,7 @@
 const {
   createProject,
   getProjects
-} = require("../../DATABASE/users/projects/projectRepository");
+} = require("../../DATABASE/users/projects/projectRepositoryFixed");
 
 const create = async (req, res) => {
   const project = await createProject(req.body);

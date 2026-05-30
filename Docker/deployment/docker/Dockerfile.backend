@@ -6,11 +6,14 @@ COPY backend/package*.json ./backend/
 COPY ["AI-AGENT-SYSTEM/package*.json", "AI-AGENT-SYSTEM/"]
 
 RUN cd backend && npm install && cd /app/AI-AGENT-SYSTEM && npm install
+RUN npm install mongoose --no-audit --no-fund
 
 COPY backend ./backend
 COPY ["AI-AGENT-SYSTEM", "AI-AGENT-SYSTEM"]
 COPY DATABASE ./DATABASE
 COPY WORKERS ./WORKERS
+RUN cd /app/WORKERS && npm install
+COPY lib ./lib
 
 EXPOSE 5000
 

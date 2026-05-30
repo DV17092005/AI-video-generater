@@ -1,7 +1,8 @@
 require("dotenv").config();
 const http = require("http");
 const app = require("./app");
-const { connectDB } = require("./config/db");
+const dbModule = require("./config/db");
+const connectDB = typeof dbModule === 'function' ? dbModule : dbModule.connectDB;
 const initSocket = require("./sockets/socketServer");
 
 connectDB();
