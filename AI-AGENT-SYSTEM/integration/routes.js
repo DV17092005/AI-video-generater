@@ -10,6 +10,19 @@ const agentConfig = require('./config');
 const router = express.Router();
 let agent = null;
 
+const OPENAI_KEY = process.env.OPENAI_API_KEY || '';
+const OPENAI_KEY_MISSING_ERROR = {
+  success: false,
+  error: 'OPENAI_API_KEY is not configured. Set OPENAI_API_KEY in your environment or .env file to use AI agent routes.'
+};
+
+router.use((req, res, next) => {
+  if (!OPENAI_KEY) {
+    return res.status(503).json(OPENAI_KEY_MISSING_ERROR);
+  }
+  next();
+});
+
 // Middleware to initialize agent
 router.use(async (req, res, next) => {
   if (!agent) {

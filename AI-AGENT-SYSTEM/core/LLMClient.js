@@ -13,13 +13,18 @@ class LLMClient {
     this.temperature = config.temperature || 0.7;
     this.maxTokens = config.maxTokens || 800;
     this.timeout = config.timeout || 30000;
+    this.disabled = !this.apiKey;
 
-    if (!this.apiKey) {
-      throw new Error('OpenAI API key is required for LLMClient');
+    if (this.disabled) {
+      console.warn('LLMClient disabled: OPENAI_API_KEY is not configured. AI features will be unavailable.');
     }
   }
 
   async createChatCompletion({ messages, model, temperature, maxTokens }) {
+    if (this.disabled) {
+      throw new Error('OpenAI API key is not configured. Set OPENAI_API_KEY in your environment to enable AI features.');
+    }
+
     const payload = {
       model: model || this.model,
       messages,

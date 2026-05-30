@@ -2,7 +2,7 @@ const Subscription = require("../../DATABASE/users/subscriptions/Subscription");
 const Analytics = require("../../DATABASE/users/analytics/Analytics");
 
 const subscriptionCheck = async (req, res, next) => {
-  const userId = req.user?.id;
+  const userId = req.user?.id || req.user?.sub;
 
   if (!userId) {
     return res.status(401).json({ message: "Unauthorized" });

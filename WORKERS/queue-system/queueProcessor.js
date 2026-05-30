@@ -1,4 +1,9 @@
-require("dotenv").config();
+const fs = require("fs");
+const path = require("path");
+const dotenvPath = path.resolve(__dirname, "../../.env");
+if (fs.existsSync(dotenvPath)) {
+  require("dotenv").config({ path: dotenvPath });
+}
 const videoQueue = require("./queue");
 const { runAI } = require("./ai-worker/aiWorker");
 const { renderVideo } = require("./render-worker/renderWorker");

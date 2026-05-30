@@ -1,23 +1,27 @@
-﻿const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 const protect = (req, res, next) => {
-  const token = req.headers.authorization;
+  const authHeader = req.headers.authorization;
+  const token = authHeader?.startsWith("Bearer ")
+    ? authHeader.split(" ")[1]
+    : authHeader;
 
   if (!token) {
     return res.status(401).json({
-      message: 'Unauthorized'
+      message: "Unauthorized"
     });
   }
 
   try {
-    jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
     next();
-  } catch {
+  } catch (error) {
+    console.error("Auth token verify failed:", error.message);
     res.status(401).json({
-      message: 'Invalid Token'
+      message: "Invalid Token"
     });
   }
 };
 
 module.exports = protect;
-

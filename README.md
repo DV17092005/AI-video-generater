@@ -47,6 +47,25 @@ This repository contains a full-stack AI Video Generator application with separa
 - The frontend is configured with Vite and loads from `frontend/index.html`.
 - The backend includes socket support via `backend/sockets/socketServer.js`.
 
+## Docker deployment
+
+1. Ensure Docker Desktop is running.
+2. Create the root environment file:
+   ```bash
+   cp .env.example .env
+   ```
+3. Add your OpenAI API key to `.env`:
+   ```env
+   OPENAI_API_KEY=your_openai_api_key_here
+   ```
+4. Build and start the application stack:
+   ```bash
+   docker compose -f "Docker Compose/docker-compose.yml" up --build
+   ```
+5. The app services will be available at:
+   - Frontend: `http://localhost:3000`
+   - Backend API: `http://localhost:5000`
+
 ## Quick start
 
 ```bash

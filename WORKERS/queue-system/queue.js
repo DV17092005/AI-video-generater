@@ -1,6 +1,6 @@
 const Queue = require("bull");
 
-const VIDEO_QUEUE_URL = process.env.REDIS_URL || "redis://redis:6379";
+const VIDEO_QUEUE_URL = process.env.REDIS_URL || "redis://127.0.0.1:6379";
 
 const videoQueue = new Queue("video-generation", VIDEO_QUEUE_URL, {
   defaultJobOptions: {
