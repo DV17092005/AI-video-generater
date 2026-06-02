@@ -8,6 +8,7 @@
     "preview": "vite preview",
     "test:frontend": "jest --selectProjects frontend --runInBand --colors",
     "test:backend": "jest --selectProjects backend --runInBand --colors",
+    "test:ai": "jest --selectProjects ai --runInBand --colors",
     "test:all": "jest --runInBand --colors",
     "test": "npm run test:all"
   },
@@ -23,7 +24,7 @@
     "@babel/preset-env": "^7.25.0",
     "@babel/preset-react": "^7.25.0",
     "@testing-library/jest-dom": "^6.1.0",
-    "@testing-library/react": "^14.0.0",
+    "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.5.0",
