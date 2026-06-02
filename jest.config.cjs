@@ -37,6 +37,17 @@ const backendConfig = {
   setupFilesAfterEnv: [path.resolve(__dirname, 'jest.setup.js')]
 };
 
+const aiConfig = {
+  displayName: 'ai',
+  testEnvironment: 'node',
+  testMatch: ['**/Testing/tests/ai-tests/**/*.(spec|test).js'],
+  transform: {
+    '^.+\\.(js|mjs)$': 'babel-jest'
+  },
+  moduleFileExtensions: ['js', 'mjs', 'jsx', 'json', 'node'],
+  setupFilesAfterEnv: [path.resolve(__dirname, 'jest.setup.js')]
+};
+
 module.exports = {
-  projects: [frontendConfig, backendConfig]
+  projects: [frontendConfig, backendConfig, aiConfig]
 };

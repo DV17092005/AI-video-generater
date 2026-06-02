@@ -6,13 +6,6 @@
 # Node dependencies
 node_modules/
 **/node_modules/
-
-# Lockfiles
-package-lock.json
-npm-shrinkwrap.json
-yarn.lock
-pnpm-lock.yaml
-
 # Build output
 dist/
 build/
