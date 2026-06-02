@@ -3,50 +3,70 @@
 .env.local
 .env.*.local
 
-# Dependencies
+# Node dependencies
 node_modules/
-*/node_modules/
-package-lock.json
-yarn.lock
+**/node_modules/
 
-# Build outputs
+# Lockfiles
+package-lock.json
+npm-shrinkwrap.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build output
 dist/
 build/
+out/
+**/dist/
+**/build/
+
+# Logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # Cache files
 .cache/
-__pycache__/
-*.pyc
-*.pyo
-.pytest_cache/
+.parcel-cache/
+.eslintcache
+
+# Coverage reports
+coverage/
+.nyc_output/
 
 # Temporary files
 tmp-*.txt
 tmp-*.err
 *-head.txt
 *-health.txt
+*.tmp
+*.temp
 
 # OS files
 .DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor / IDE
 .vscode/
 .idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Misc
+.Dockerfile.swp
 *.swp
 *.swo
 
-# Docker build artifacts
-Dockerfile.backend
+# Docker overrides
 docker-compose.override.yml
-
-# Test coverage
-coverage/
-.nyc_output/
-
-# IDE
-.vscode
-.idea
-*.sublime-project
-*.sublime-workspace
